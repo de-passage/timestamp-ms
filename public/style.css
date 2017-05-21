@@ -1,0 +1,14 @@
+code {
+  border-radius: 5px;
+  background-color: #EEE;
+  color: #700b49;
+  padding: 5px; }
+
+body {
+  padding-left: 50px; }
+
+@media only screen and (max-width: 500px) {
+  body {
+    padding-left: 0; } }
+
+/*# sourceMappingURL=style.css.map */

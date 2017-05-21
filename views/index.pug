@@ -1,0 +1,24 @@
+doctype html
+head
+	title Timestamp microservice
+	script(src="https://code.jquery.com/jquery-3.2.1.min.js", integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=", crossorigin="anonymous")
+	script(src="/static/script.js", type="application/javascript")
+	link(rel="stylesheet", href="/static/style.css", type="text/css")
+body
+	h1 API Documentation
+	h2 Endpoint 
+	code 
+		script document.write(window.location.hostname);
+		| /
+	h2 Parameters
+	p A date in English or a Unix timestamp
+	h3 Example
+	code
+		script document.write(window.location.hostname);
+		| /December%2015,%202015
+	h2 Return
+	p A JSON object containing the date in English and the corresponding Unix timestamp. If the parameter is invalid, these values are set to null.
+	.output #{output}
+	.try-it
+		input#input(type="text")
+		button#try-btn(type="button") Try it
