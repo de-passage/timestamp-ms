@@ -1,6 +1,7 @@
 express = require("express")
 app = express()
 path = require 'path'
+months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
 
 port = process.argv[2] or 8000
 
@@ -15,20 +16,21 @@ app.get "/", (req, res) ->
 app.get "/:date", (req, res) ->
   param = req.params.date
   ts = parseInt(param)
+
   if !isNaN(ts)
     date = new Date(ts * 1000)
   else
-    date = new Date param
+    date = new Date Date.parse param
 
   if isNaN(date.getTime())
     unix = null
     natural = null
   else
     unix = Math.round(date.getTime() / 1000)
-    natural = date.toDateString()
+    natural = "#{months[date.getMonth()]} #{date.getDate()}, #{date.getFullYear()}"
 
   if req.query.response == "html"
-    res.render "index.pug", { output: "#{unix}: #{natural}" }
+    res.render "index.pug", { output: "<h2>Response</h2>Unix timestamp: #{unix}<br>Date: #{natural}" }
   else
     res.json unix: unix, natural: natural
 

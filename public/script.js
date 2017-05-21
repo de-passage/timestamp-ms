@@ -2,7 +2,7 @@
 (function() {
   $(document).ready(function() {
     return $("#try-btn").click(function() {
-      return window.location.href = (encodeURIComponent($("#input").val())) + "?response=html";
+      return window.location.href = (encodeURIComponent($("#input").val())) + "?response=" + ($('input[name=responseFormat]:checked').val());
     });
   });
 

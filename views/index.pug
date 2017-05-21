@@ -18,7 +18,16 @@ body
 		| /December%2015,%202015
 	h2 Return
 	p A JSON object containing the date in English and the corresponding Unix timestamp. If the parameter is invalid, these values are set to null.
-	.output #{output}
+	.output !{output}
 	.try-it
-		input#input(type="text")
-		button#try-btn(type="button") Try it
+		h2 Try it!
+		.options
+			label
+				| JSON
+				input(type="radio" name="responseFormat" value="json")
+			label
+				| HTML
+				input(type="radio" name="responseFormat" value="html" checked="true")
+		div
+			input#input(type="text")
+			button#try-btn(type="button") Try it
