@@ -15,10 +15,9 @@ app.get "/", (req, res) ->
 
 app.get "/:date", (req, res) ->
   param = req.params.date
-  ts = parseInt(param)
 
-  if !isNaN(ts)
-    date = new Date(ts * 1000)
+  if param.match(/^\d+$/)
+    date = new Date(parseInt(param) * 1000)
   else
     date = new Date Date.parse param
 
